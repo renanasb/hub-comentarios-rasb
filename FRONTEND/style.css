@@ -23,6 +23,12 @@ body {
     margin-bottom: 10px;
 }
 
+#login-form * {
+margin-top: 10px;
+margin-bottom: 10px;
+
+}
+#login-form
 #form-comentario textarea, input {
     display: block;
     color: rgb(17, 35, 41);
@@ -51,4 +57,14 @@ body {
     display: inline;
     font-size: smaller;
     height: fit-content;
+}
+.disabled{
+    display: nome;
+}
+.comments{
+    transition: all 0.5s ease;
+}
+.comments.disabled{
+    opacity: 0;
+    pointer-events: none;
 }

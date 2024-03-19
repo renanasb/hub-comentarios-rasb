@@ -8,7 +8,7 @@ require('dotenv').config()
 const server = express();
 
 server.use(express.json());
-server.use(express.urlencoded({extended: true}));
+server.use(express.urlencoded({ extended: true }));
 server.use(cors());
 server.use(bodyParser.json());
 
@@ -27,6 +27,18 @@ db.connect((err) => {
     console.log('Conectado com sucesso!');
 })
 
+server.post('/Login', (req, res) => {
+    const { username, password } = req.body;
+
+    db.query('SELECT * FROM user WHERE username =? AND password =?', [username, password], (err, results) => {
+        if (err) {
+            res.status(500).json({ success: false, error: 'Internal server error' });
+            return;
+        }
+
+        res.json({ success: true, user: results });
+    })
+})
 server.get('/comment', (req, res) => {
     db.query('SELECT * FROM comment', (err, results) => {
         if (err) {
@@ -48,6 +60,6 @@ server.get('/user', (req, res) => {
     });
 });
 
-server.listen(PORT, () =>{
+server.listen(PORT, () => {
     console.log(`O server está rodando em http:\\localhost:${PORT}`)
-} )
+})

@@ -39,7 +39,6 @@ const loadComment = () => {
         );
         displayComment(comments)
     }).catch(error => {
-        console.error(error);
         alert(error);
     })
 }

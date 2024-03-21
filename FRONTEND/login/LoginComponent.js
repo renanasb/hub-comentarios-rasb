@@ -1,6 +1,7 @@
 import { User } from "../models/user.model.js";
 import { loginServices } from "../services/login.services.js";
 
+
 const getLoginInputs = () => {
     return {
         username: document.getElementById('username'),
@@ -27,13 +28,16 @@ const handleLogin = (event) => {
     const { username, password } = getLoginInputs();
     const user = new User(null, username.value, password.value);
     console.log(user);
-    
-    loginServices.apiAuthUser(user).then(result =>{
-console.log(result);
-user.setPassword(null);
-user.setId(result,id);
-user.setFirstname(result.firstname);
-user.setLastname(result.lastname);
+
+    loginServices.apiGetComment(user).then(result => {
+        user.setPassword(null);
+        user.setId(result.id);
+        user.setFirstname(result.firstname);
+        user.setLastname(result.lastname);
+        console.log(result);
+
+        // const inputAuthor = document.getElementById{ 'inputAuthor'}
+        // inputAuthor.value = user.getFirstname('inputAuthor')
     })
     handleShowhide();
 }
@@ -46,4 +50,4 @@ const LoginComponent = {
 }
 
 export { LoginComponent }
-export {loginServices}
+export { loginServices }

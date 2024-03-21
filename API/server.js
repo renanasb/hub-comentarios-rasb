@@ -37,7 +37,7 @@ server.post('/Login', (req, res) => {
         }
         if (results.length > 0) {
             const {id , username,firstname, lastname} = results[0]; 
-            res.json({success:true ,user:{id,username,firstname,lastname}});
+            res.json({success:true ,user: {id,username,firstname,lastname}});
         } else {
             res.json({success:false, error: 'Internal server error'});
         }

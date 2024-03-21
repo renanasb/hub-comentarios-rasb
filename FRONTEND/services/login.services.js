@@ -3,9 +3,10 @@ const URL_API = "http://localhost:7000";
 const loginServices = {
   apiGetComment: () => {
     return new Promise((resolve, reject) => {
-      fetch(`${URL_API}/login`,)
+      fetch(`${URL_API}/login`)
         .then(response => response.json())
         .then(data => {
+
           if (data.success) {
             resolve(data.user);
           } else {
@@ -19,4 +20,4 @@ const loginServices = {
   },
 };
 
-export {loginServices}
+export { loginServices }

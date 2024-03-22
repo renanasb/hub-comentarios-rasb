@@ -36,8 +36,6 @@ const handleLogin = (event) => {
         user.setLastname(result.lastname);
         console.log(result);
 
-        // const inputAuthor = document.getElementById{ 'inputAuthor'}
-        // inputAuthor.value = user.getFirstname('inputAuthor')
     })
     handleShowhide();
 }

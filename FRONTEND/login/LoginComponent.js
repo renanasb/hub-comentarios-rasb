@@ -27,7 +27,7 @@ const handleLogin = (event) => {
     event.preventDefault();
     const { username, password } = getLoginInputs();
     const user = new User(null, username.value, password.value);
-    console.log(user);
+
 
     loginServices.apiGetComment(user).then(result => {
         user.setPassword(null);

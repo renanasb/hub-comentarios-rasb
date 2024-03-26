@@ -1,9 +1,15 @@
 const URL_API = "http://localhost:7000";
 
 const loginServices = {
-  apiGetComment: () => {
+  apiGetComment: (user) => {
     return new Promise((resolve, reject) => {
-      fetch(`${URL_API}/login`)
+      fetch(`${URL_API}/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+      })
         .then(response => response.json())
         .then(data => {
 

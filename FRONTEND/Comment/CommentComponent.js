@@ -15,7 +15,7 @@ const setInputComment = (authorValue, commentValue) => {
     comment.value = commentValue
 }
 
-
+    
 const clearCommentField = () => {
     const { comment } = getInputComment();
     comment.value = ''
@@ -40,6 +40,7 @@ const submitComment = (event) => {
         console.log(error)
     });
 }
+
 const loadComment = () => {
     // Dados carregados da API
     CommentService.apiGetComment().then(result => {

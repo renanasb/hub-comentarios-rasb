@@ -9,7 +9,7 @@ const server = express();
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use(cors());
+server.use(cors()); 
 server.use(bodyParser.json());
 
 const PORT = 7000;
